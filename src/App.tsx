@@ -65,6 +65,7 @@ export const App = () => {
               <Route path="/" element={<Navigate replace to="/messages" />} />
               <Route path="/messages" Component={Messages} />
               <Route path="/messages/new" Component={NewMessage} />
+              <Route path="/messages/:id" Component={NewMessage} />
               <Route path="/contacts" Component={Contacts} />
             </Routes>
             <Toaster />

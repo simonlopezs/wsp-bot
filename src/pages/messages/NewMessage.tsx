@@ -5,6 +5,7 @@ import { WriteEventPayload } from "../../models/WriteEvent";
 import { FormField } from "../../components/FormField";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { MessageState } from "../../models/Message";
 
 export const NewMessage = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ export const NewMessage = () => {
         title,
         body,
         recipients,
+        state: MessageState.DRAFT,
       },
       action: "add",
     };
@@ -29,6 +31,7 @@ export const NewMessage = () => {
   };
 
   const cancel = () => navigate("/messages");
+  const send = () => {};
 
   return (
     <Page title="Nuevo mensaje">
@@ -49,7 +52,8 @@ export const NewMessage = () => {
 
       <div className="flex justify-end space-x-3">
         <Button onClick={cancel} label="Cancelar" variant="secondary" />
-        <Button onClick={save} label="Guardar" />
+        <Button onClick={save} label="Guardar" variant="secondary" />
+        <Button onClick={send} label="Enviar" />
       </div>
     </Page>
   );

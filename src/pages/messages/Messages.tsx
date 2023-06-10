@@ -42,7 +42,11 @@ export const Messages = () => {
   );
   return (
     <Page title="Mensajes" actions={actions}>
-      <Table data={messages} columns={columns} />
+      <Table
+        data={messages}
+        columns={columns}
+        onClick={({ id }) => navigate("/messages/" + id)}
+      />
     </Page>
   );
 };

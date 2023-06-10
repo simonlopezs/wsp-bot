@@ -22,6 +22,7 @@ export enum MessageResult {
 export enum MessageState {
   DRAFT = "BORRADOR",
   SCHEDULED = "PROGRAMADO",
+  RUNNING = "ENVIANDO",
   SENT = "FINALIZADO",
   FAILED = "FALLIDO",
 }

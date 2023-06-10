@@ -2,6 +2,7 @@ export interface TableProps {
   columns: Column[];
   data: any[];
   actions?: Action[];
+  onClick?: (item: any) => void;
 }
 
 export interface Column {
@@ -17,7 +18,7 @@ export interface Action {
   onClick: (item: any) => void;
 }
 
-export const Table = ({ columns, data, actions }: TableProps) => {
+export const Table = ({ columns, data, actions, onClick }: TableProps) => {
   const headers = columns.map(({ header, align }) => ({
     header,
     alignClass: "text-" + (align || "center"),
@@ -39,7 +40,8 @@ export const Table = ({ columns, data, actions }: TableProps) => {
           {data.map((item, index) => (
             <tr
               key={index}
-              className="border-b border-gray-200 hover:bg-gray-100"
+              onClick={() => onClick && onClick(item)}
+              className="border-b border-gray-200 hover:bg-gray-100 cursor-pointer"
             >
               {columns.map(({ param }, colIndex) => (
                 <td
